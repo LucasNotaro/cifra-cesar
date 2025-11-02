@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descriptografar - Cifra de Cesar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% const usuarioAtual = typeof usuario !== 'undefined' ? usuario : null; %>
+    <%- include('../partials/header', { usuario: usuarioAtual }) %>
+    <main>
+      <div class="card">
+        <h2>Descriptografar mensagem</h2>
+        <%- include('../partials/messages', { erro, sucesso }) %>
+        <form method="POST" action="/cifra/decifrar">
+          <div class="field-group">
+            <label for="textoCifrado">Mensagem criptografada</label>
+            <textarea
+              id="textoCifrado"
+              name="textoCifrado"
+              rows="4"
+              maxlength="500"
+              required
+            ><%= typeof textoCifrado !== 'undefined' && textoCifrado ? textoCifrado : '' %></textarea>
+          </div>
+          <div class="field-group">
+            <label for="hash">Hash (chave privada)</label>
+            <input
+              id="hash"
+              name="hash"
+              type="text"
+              maxlength="100"
+              required
+              value="<%= typeof hash !== 'undefined' && hash ? hash : '' %>"
+            />
+          </div>
+          <button type="submit">Descriptografar</button>
+        </form>
+
+        <% if (typeof textoPlano !== 'undefined' && textoPlano && typeof hash !== 'undefined' && hash) { %>
+          <section class="result">
+            <h3>Mensagem original</h3>
+            <div class="result-box"><%= textoPlano %></div>
+            <p class="message success">
+              Hash <strong><%= hash %></strong> marcado como utilizado.
+            </p>
+          </section>
+        <% } %>
+      </div>
+    </main>
+    <footer>
+      Cifra de Cesar
+    </footer>
+  </body>
+</html>

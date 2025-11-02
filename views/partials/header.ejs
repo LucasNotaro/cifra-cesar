@@ -1,0 +1,18 @@
+<header class="top-nav">
+  <div class="brand">
+    <a href="/" class="brand-link">Cifra de Cesar</a>
+    <% if (typeof usuario !== 'undefined' && usuario) { %>
+      <span class="welcome">Olá, <strong><%= usuario.nomeUsuario %></strong></span>
+    <% } %>
+  </div>
+  <nav class="nav-links">
+    <% if (typeof usuario !== 'undefined' && usuario) { %>
+      <a href="/cifra/criptografar">Criptografar</a>
+      <a href="/cifra/decifrar">Descriptografar</a>
+      <a href="/auth/logout">Sair</a>
+    <% } else { %>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/cadastro">Cadastro</a>
+    <% } %>
+  </nav>
+</header>

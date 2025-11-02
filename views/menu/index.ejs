@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Principal - Cifra de Cesar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% const usuarioAtual = typeof usuario !== 'undefined' ? usuario : null; %>
+    <%- include('../partials/header', { usuario: usuarioAtual }) %>
+    <main>
+      <div class="card">
+        <h2>Menu Principal</h2>
+        <p>Escolha uma das opcoes abaixo para continuar:</p>
+        <div class="menu-grid">
+          <a class="menu-item" href="/cifra/criptografar">
+            <h3>Criptografar</h3>
+            <p>Gerar mensagens cifradas e criar um hash unico.</p>
+          </a>
+          <a class="menu-item" href="/cifra/decifrar">
+            <h3>Descriptografar</h3>
+            <p>Informar mensagem cifrada e hash para recuperar o texto original.</p>
+          </a>
+          <a class="menu-item" href="/auth/logout">
+            <h3>Sair</h3>
+            <p>Encerrar a sessao atual com seguranca.</p>
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Cifra de Cesar
+    </footer>
+  </body>
+</html>

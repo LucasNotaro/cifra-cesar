@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - Cifra de Cesar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% const usuarioAtual = typeof usuario !== 'undefined' ? usuario : null; %>
+    <%- include('../partials/header', { usuario: usuarioAtual }) %>
+    <main>
+      <div class="card">
+        <h2>Criar conta</h2>
+        <%- include('../partials/messages', { erro, sucesso }) %>
+        <form method="POST" action="/auth/cadastro">
+          <div class="field-group">
+            <label for="nomeUsuario">Nome de usuario</label>
+            <input
+              id="nomeUsuario"
+              name="nomeUsuario"
+              type="text"
+              maxlength="50"
+              placeholder="Como deseja ser chamado"
+              required
+            />
+          </div>
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              maxlength="255"
+              placeholder="seuemail@exemplo.com"
+              required
+            />
+          </div>
+          <div class="field-group">
+            <label for="senha">Senha</label>
+            <input
+              id="senha"
+              name="senha"
+              type="password"
+              minlength="8"
+              maxlength="100"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}"
+              title="Minimo 8 caracteres com letras maiusculas, minusculas e caractere especial"
+              required
+            />
+          </div>
+          <div class="field-group">
+            <label for="confirmarSenha">Confirmar senha</label>
+            <input
+              id="confirmarSenha"
+              name="confirmarSenha"
+              type="password"
+              minlength="8"
+              maxlength="100"
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}"
+              title="Repita a senha com os mesmos requisitos"
+              required
+            />
+          </div>
+          <div class="actions">
+            <button type="submit">Cadastrar</button>
+            <a href="/auth/login">Ja tenho conta</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      Trabalho pratico - Cifra de Cesar - Professor Junio Goncalves
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# dependencias
+node_modules/
+
+# builds e caches
+dist/
+tmp/
+
+# arquivos de configuracao locais
+.env
+.DS_Store

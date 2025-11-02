@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criptografar - Cifra de Cesar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <% const usuarioAtual = typeof usuario !== 'undefined' ? usuario : null; %>
+    <%- include('../partials/header', { usuario: usuarioAtual }) %>
+    <main>
+      <div class="card">
+        <h2>Criptografar mensagem</h2>
+        <%- include('../partials/messages', { erro, sucesso }) %>
+        <form method="POST" action="/cifra/criptografar">
+          <div class="field-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              maxlength="500"
+              required
+            ><%= typeof mensagemOriginal !== 'undefined' && mensagemOriginal ? mensagemOriginal : '' %></textarea>
+          </div>
+          <div class="field-group">
+            <label for="deslocamento">Passo (deslocamento)</label>
+            <input
+              id="deslocamento"
+              name="deslocamento"
+              type="number"
+              min="-1000"
+              max="1000"
+              required
+              value="<%= typeof deslocamento !== 'undefined' && deslocamento ? deslocamento : '' %>"
+            />
+          </div>
+          <button type="submit">Criptografar</button>
+        </form>
+
+        <% if (typeof textoCifrado !== 'undefined' && textoCifrado && typeof hash !== 'undefined' && hash) { %>
+          <section class="result">
+            <h3>Resultado</h3>
+            <div class="pair">
+              <strong>Mensagem:</strong>
+              <div class="result-box"><%= mensagemOriginal %></div>
+              <strong>Criptografado:</strong>
+              <div class="result-box"><%= textoCifrado %></div>
+              <strong>Hash (chave):</strong>
+              <div class="result-box"><%= hash %></div>
+            </div>
+            <p class="message success">
+              Guarde o hash com cuidado. Ele sera requerido para descriptografar.
+            </p>
+          </section>
+        <% } %>
+      </div>
+    </main>
+    <footer>
+      Cifra de Cesar
+    </footer>
+  </body>
+</html>
