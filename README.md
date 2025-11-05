@@ -1,10 +1,10 @@
 # Cifra de Cesar
 
-Aplicacao NestJS para praticar a cifra de Cesar com autenticacao via JWT e interface em EJS totalmente em portugues.
+Aplicacao NestJS para praticar a cifra de Cesar com autenticacao via JWT e interface em EJS.
 
 ## Configuracao do projeto
 
-1. Copie o arquivo `.env.example` para `.env` e preencha com as informacoes do banco e JWT.
+1. Copie o arquivo `.env.exemplo` para `.env` e preencha com as informacoes do banco e JWT.
 2. Instale as dependencias:
 
 ```bash
@@ -21,12 +21,6 @@ npm run start:dev
 npm run start:prod
 ```
 
-## Comandos uteis
-
-- `npm run build`: compila o projeto TypeScript.
-- `npm run test`: executa os testes unitarios.
-- `npm run test:e2e`: executa os testes end-to-end.
-
 ## Fluxo principal
 
 1. Acesse `/auth/login` para entrar.
@@ -38,7 +32,3 @@ npm run start:prod
 - `src/usuarios`: modulo de usuarios, contendo entidade, servico e modulo NestJS.
 - `src/cifra`: recursos relacionados a cifra de Cesar.
 - `views`: paginas EJS utilizadas pela aplicacao.
-
-## Licenca
-
-Projeto disponibilizado apenas para fins educacionais.

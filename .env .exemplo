@@ -1,5 +1,5 @@
 # Banco de dados
-DATABASE_URL=
+DATABASE_URL=string de conexão
 DATABASE_SSL=true
 DATABASE_SSL_REJECT_UNAUTHORIZED=false
 
